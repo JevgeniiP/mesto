@@ -1,0 +1,9 @@
+.header {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	max-width: calc(var(--width));
+	min-height: calc(var(--height));
+	margin: calc(var(--mntop)) calc(var(--mnside)) 0;
+	border-bottom: 1px solid #545454;
+}
