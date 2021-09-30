@@ -1,0 +1,45 @@
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.header {
+		--w-max: 880;
+		--w-min: 320;
+		--h-max: 74;
+		--h-min: 56;
+		--mnside-max: 200;
+		--mnside-min: 0;
+		--mntop-max: 45;
+		--mntop-min: 28;
+		--max-b: 1280;
+		--min-b: 320;
+
+		--delta-w: (var(--w-max) - var(--w-min));
+		--delta-b: (var(--max-b) - var(--min-b));
+		--step-w: var(--delta-w) / var(--delta-b);
+		--width: (var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw);
+
+		--delta-h: (var(--h-max) - var(--h-min));
+		--step-h: var(--delta-h) / var(--delta-b);
+		--height: (var(--h-max) * 1px) - var(--step-h) * (var(--max-b) * 1px - 100vw);
+
+		--delta-mnside: (var(--mnside-max) - var(--mnside-min));
+		--step-mnside: var(--delta-mnside) / var(--delta-b);
+		--mnside: (var(--mnside-max) * 1px) - var(--step-mnside) * (var(--max-b) * 1px - 100vw);
+
+		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
+		--step-mntop: var(--delta-mntop) / var(--delta-b);
+		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.header__logo {
+		--w-max: 142;
+		--w-min: 104;
+		--max-b: 1280;
+		--min-b: 320;
+
+		--delta-w: (var(--w-max) - var(--w-min));
+		--delta-b: (var(--max-b) - var(--min-b));
+		--step-w: var(--delta-w) / var(--delta-b);
+		--width: (var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw);
+	}
+}
