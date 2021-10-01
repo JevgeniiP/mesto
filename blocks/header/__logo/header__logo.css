@@ -1,4 +1,3 @@
 .header__logo {
 	max-width: calc(var(--width));
-	height: auto;
 }

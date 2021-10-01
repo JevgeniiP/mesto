@@ -43,3 +43,37 @@
 		--width: (var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw);
 	}
 }
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.profile {
+		--mnside-max: 200;
+		--mnside-min: 0;
+		--mntop-max: 40;
+		--mntop-min: 42;
+		--max-b: 1280;
+		--min-b: 320;
+
+		--delta-b: (var(--max-b) - var(--min-b));
+		--delta-mnside: (var(--mnside-max) - var(--mnside-min));
+		--step-mnside: var(--delta-mnside) / var(--delta-b);
+		--mnside: (var(--mnside-max) * 1px) - var(--step-mnside) * (var(--max-b) * 1px - 100vw);
+
+		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
+		--step-mntop: var(--delta-mntop) / var(--delta-b);
+		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.cards {
+		--mntop-max: 50;
+		--mntop-min: 36;
+		--max-b: 1280;
+		--min-b: 320;
+
+		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
+		--delta-b: (var(--max-b) - var(--min-b));
+		--step-mntop: var(--delta-mntop) / var(--delta-b);
+		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
+	}
+}
