@@ -16,3 +16,11 @@
 @import url(../blocks/profile/__button-edit/profile__button-edit.css);
 @import url(../blocks/profile/__profession/profile__profession.css);
 @import url(../blocks/profile/__button-add/profile__button-add.css);
+
+@import url(../blocks/cards/cards.css);
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__photo/card__photo.css);
+@import url(../blocks/card/__like-zone/card__like-zone.css);
+@import url(../blocks/card/__title/card__title.css);
+
+@import url(../blocks/like-button/like-button.css);

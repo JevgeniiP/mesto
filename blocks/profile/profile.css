@@ -3,5 +3,5 @@
 	justify-content: space-between;
 	align-items: center;
 	max-width: 880px;
-	margin: 40px calc(var(--mnside)) 0;
+	margin: calc(var(--mntop)) calc(var(--mnside)) 0;
 }
