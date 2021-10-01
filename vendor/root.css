@@ -34,6 +34,8 @@
 	.header__logo {
 		--w-max: 142;
 		--w-min: 104;
+		--mnleft-max: 0;
+		--mnleft-min: 27;
 		--max-b: 1280;
 		--min-b: 320;
 
@@ -41,13 +43,17 @@
 		--delta-b: (var(--max-b) - var(--min-b));
 		--step-w: var(--delta-w) / var(--delta-b);
 		--width: (var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw);
+
+		--delta-mnleft: (var(--mnleft-max) - var(--mnleft-min));
+		--step-mnleft: var(--delta-mnleft) / var(--delta-b);
+		--mnleft: (var(--mnleft-max) * 1px) - var(--step-mnleft) * (var(--max-b) * 1px - 100vw);
 	}
 }
 
 @media screen and (min-width: 320px) and (max-width: 1280px) {
 	.profile {
 		--mnside-max: 200;
-		--mnside-min: 0;
+		--mnside-min: 19;
 		--mntop-max: 40;
 		--mntop-min: 42;
 		--max-b: 1280;
@@ -61,6 +67,46 @@
 		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
 		--step-mntop: var(--delta-mntop) / var(--delta-b);
 		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.profile__name {
+		--fs-max: 42;
+		--fs-min: 27;
+		--lh-max: 48;
+		--lh-min: 33;
+		--max-b: 1280;
+		--min-b: 320;
+
+		--delta-b: (var(--max-b) - var(--min-b));
+		--delta-fs: (var(--fs-max) - var(--fs-min));
+		--step-fs: var(--delta-fs) / var(--delta-b);
+		--fs: (var(--fs-max) * 1px) - var(--step-fs) * (var(--max-b) * 1px - 100vw);
+
+		--delta-lh: (var(--lh-max) - var(--lh-min));
+		--step-lh: var(--delta-lh) / var(--delta-b);
+		--lh: (var(--lh-max) * 1px) - var(--step-lh) * (var(--max-b) * 1px - 100vw);
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.profile__profession {
+		--fs-max: 18;
+		--fs-min: 14;
+		--lh-max: 22;
+		--lh-min: 17;
+		--max-b: 1280;
+		--min-b: 320;
+
+		--delta-b: (var(--max-b) - var(--min-b));
+		--delta-fs: (var(--fs-max) - var(--fs-min));
+		--step-fs: var(--delta-fs) / var(--delta-b);
+		--fs: (var(--fs-max) * 1px) - var(--step-fs) * (var(--max-b) * 1px - 100vw);
+
+		--delta-lh: (var(--lh-max) - var(--lh-min));
+		--step-lh: var(--delta-lh) / var(--delta-b);
+		--lh: (var(--lh-max) * 1px) - var(--step-lh) * (var(--max-b) * 1px - 100vw);
 	}
 }
 

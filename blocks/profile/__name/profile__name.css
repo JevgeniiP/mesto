@@ -2,9 +2,15 @@
 	font-family: Inter;
 	font-style: normal;
 	font-weight: 500;
-	font-size: 42px;
-	line-height: 1.14;
+	font-size: calc(var(--fs));
+	line-height: calc(var(--lh));
 	color: #ffffff;
 	margin: 0;
 	display: block;
+}
+
+@media screen and (max-width: 767px) {
+	.profile__name {
+		margin: 26px 0 0;
+	}
 }
