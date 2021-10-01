@@ -1,0 +1,3 @@
+.footer {
+	margin: calc(var(--mntop)) calc(var(--mnright)) calc(var(--mnbot)) calc(var(--mnleft));
+}

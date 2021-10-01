@@ -77,3 +77,35 @@
 		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
 	}
 }
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.footer {
+		--mnleft-max: 200;
+		--mnleft-min: 19;
+		--mnright-max: 762;
+		--mnright-min: 19;
+		--mntop-max: 66;
+		--mntop-min: 48;
+		--mnbot-max: 60;
+		--mnbot-min: 36;
+		--max-b: 1280;
+		--min-b: 320;
+
+		--delta-b: (var(--max-b) - var(--min-b));
+		--delta-mnleft: (var(--mnleft-max) - var(--mnleft-min));
+		--step-mnleft: var(--delta-mnleft) / var(--delta-b);
+		--mnleft: (var(--mnleft-max) * 1px) - var(--step-mnleft) * (var(--max-b) * 1px - 100vw);
+
+		--delta-mnright: (var(--mnright-max) - var(--mnright-min));
+		--step-mnright: var(--delta-mnright) / var(--delta-b);
+		--mnright: (var(--mnright-max) * 1px) - var(--step-mnright) * (var(--max-b) * 1px - 100vw);
+
+		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
+		--step-mntop: var(--delta-mntop) / var(--delta-b);
+		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
+
+		--delta-mnbot: (var(--mnbot-max) - var(--mnbot-min));
+		--step-mnbot: var(--delta-mnbot) / var(--delta-b);
+		--mnbot: (var(--mnbot-max) * 1px) - var(--step-mnbot) * (var(--max-b) * 1px - 100vw);
+	}
+}
