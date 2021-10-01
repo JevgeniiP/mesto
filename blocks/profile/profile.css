@@ -1,7 +1,14 @@
 .profile {
 	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	max-width: 880px;
 	margin: calc(var(--mntop)) calc(var(--mnside)) 0;
+}
+
+@media screen and (max-width: 860px) {
+	.profile {
+		flex-direction: column;
+	}
 }

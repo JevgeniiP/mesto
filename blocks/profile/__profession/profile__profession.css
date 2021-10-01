@@ -2,8 +2,14 @@
 	font-family: Inter;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 18px;
-	line-height: 1.2;
+	font-size: calc(var(--fs));
+	line-height: calc(var(--lh));
 	color: #ffffff;
 	margin: 16px 0 0;
+}
+
+@media screen and (max-width: 767px) {
+	.profile__profession {
+		margin: 14px 0 0;
+	}
 }
