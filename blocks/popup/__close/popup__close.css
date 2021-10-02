@@ -12,3 +12,12 @@
 	background-color: transparent;
 	cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+	.popup__close {
+		width: 20px;
+		height: 20px;
+		right: 0;
+		top: -36px;
+	}
+}
