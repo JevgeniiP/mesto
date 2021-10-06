@@ -2,27 +2,25 @@
 	.header {
 		--w-max: 880;
 		--w-min: 320;
-		--h-max: 74;
-		--h-min: 56;
-		--mnside-max: 200;
-		--mnside-min: 0;
-		--mntop-max: 45;
-		--mntop-min: 28;
 		--max-b: 1280;
 		--min-b: 320;
-		--delta-w: (var(--w-max) - var(--w-min));
-		--delta-b: (var(--max-b) - var(--min-b));
-		--step-w: var(--delta-w) / var(--delta-b);
-		--width: (var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw);
-		--delta-h: (var(--h-max) - var(--h-min));
-		--step-h: var(--delta-h) / var(--delta-b);
-		--height: (var(--h-max) * 1px) - var(--step-h) * (var(--max-b) * 1px - 100vw);
-		--delta-mnside: (var(--mnside-max) - var(--mnside-min));
-		--step-mnside: var(--delta-mnside) / var(--delta-b);
-		--mnside: (var(--mnside-max) * 1px) - var(--step-mnside) * (var(--max-b) * 1px - 100vw);
-		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
-		--step-mntop: var(--delta-mntop) / var(--delta-b);
-		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
+		--mntop-max: 45;
+		--mntop-min: 28;
+		--h-max: 74;
+		--h-min: 56;
+
+		--delta-w: calc((var(--w-max) - var(--w-min)));
+		--delta-b: calc((var(--max-b) - var(--min-b)));
+		--step-w: calc(var(--delta-w) / var(--delta-b));
+		--width: calc((var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw));
+
+		--delta-h: calc((var(--h-max) - var(--h-min)));
+		--step-h: calc(var(--delta-h) / var(--delta-b));
+		--height: calc((var(--h-max) * 1px) - var(--step-h) * (var(--max-b) * 1px - 100vw));
+
+		--delta-mntop: calc((var(--mntop-max) - var(--mntop-min)));
+		--step-mntop: calc(var(--delta-mntop) / var(--delta-b));
+		--mntop: calc((var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw));
 	}
 }
 
@@ -34,31 +32,35 @@
 		--mnleft-min: 27;
 		--max-b: 1280;
 		--min-b: 320;
-		--delta-w: (var(--w-max) - var(--w-min));
-		--delta-b: (var(--max-b) - var(--min-b));
-		--step-w: var(--delta-w) / var(--delta-b);
-		--width: (var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw);
-		--delta-mnleft: (var(--mnleft-max) - var(--mnleft-min));
-		--step-mnleft: var(--delta-mnleft) / var(--delta-b);
-		--mnleft: (var(--mnleft-max) * 1px) - var(--step-mnleft) * (var(--max-b) * 1px - 100vw);
+
+		--delta-w: calc((var(--w-max) - var(--w-min)));
+		--delta-b: calc((var(--max-b) - var(--min-b)));
+		--step-w: calc(var(--delta-w) / var(--delta-b));
+		--width: calc((var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw));
+
+		--delta-mnleft: calc((var(--mnleft-max) - var(--mnleft-min)));
+		--step-mnleft: calc(var(--delta-mnleft) / var(--delta-b));
+		--mnleft: calc((var(--mnleft-max) * 1px) - var(--step-mnleft) * (var(--max-b) * 1px - 100vw));
 	}
 }
 
 @media screen and (min-width: 320px) and (max-width: 1280px) {
 	.profile {
-		--mnside-max: 200;
-		--mnside-min: 19;
 		--mntop-max: 40;
 		--mntop-min: 42;
+		--w-max: 880;
+		--w-min: 282;
 		--max-b: 1280;
 		--min-b: 320;
-		--delta-b: (var(--max-b) - var(--min-b));
-		--delta-mnside: (var(--mnside-max) - var(--mnside-min));
-		--step-mnside: var(--delta-mnside) / var(--delta-b);
-		--mnside: (var(--mnside-max) * 1px) - var(--step-mnside) * (var(--max-b) * 1px - 100vw);
-		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
-		--step-mntop: var(--delta-mntop) / var(--delta-b);
-		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
+
+		--delta-w: calc((var(--w-max) - var(--w-min)));
+		--delta-b: calc((var(--max-b) - var(--min-b)));
+		--step-w: calc(var(--delta-w) / var(--delta-b));
+		--width: calc((var(--w-max) * 1px) - var(--step-w) * (var(--max-b) * 1px - 100vw));
+
+		--delta-mntop: calc((var(--mntop-max) - var(--mntop-min)));
+		--step-mntop: calc(var(--delta-mntop) / var(--delta-b));
+		--mntop: calc((var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw));
 	}
 }
 
@@ -70,13 +72,15 @@
 		--lh-min: 33;
 		--max-b: 1280;
 		--min-b: 320;
-		--delta-b: (var(--max-b) - var(--min-b));
-		--delta-fs: (var(--fs-max) - var(--fs-min));
-		--step-fs: var(--delta-fs) / var(--delta-b);
-		--fs: (var(--fs-max) * 1px) - var(--step-fs) * (var(--max-b) * 1px - 100vw);
-		--delta-lh: (var(--lh-max) - var(--lh-min));
-		--step-lh: var(--delta-lh) / var(--delta-b);
-		--lh: (var(--lh-max) * 1px) - var(--step-lh) * (var(--max-b) * 1px - 100vw);
+
+		--delta-b: calc((var(--max-b) - var(--min-b)));
+		--delta-fs: calc((var(--fs-max) - var(--fs-min)));
+		--step-fs: calc(var(--delta-fs) / var(--delta-b));
+		--fs: calc((var(--fs-max) * 1px) - var(--step-fs) * (var(--max-b) * 1px - 100vw));
+
+		--delta-lh: calc((var(--lh-max) - var(--lh-min)));
+		--step-lh: calc(var(--delta-lh) / var(--delta-b));
+		--lh: calc((var(--lh-max) * 1px) - var(--step-lh) * (var(--max-b) * 1px - 100vw));
 	}
 }
 
@@ -88,13 +92,15 @@
 		--lh-min: 17;
 		--max-b: 1280;
 		--min-b: 320;
-		--delta-b: (var(--max-b) - var(--min-b));
-		--delta-fs: (var(--fs-max) - var(--fs-min));
-		--step-fs: var(--delta-fs) / var(--delta-b);
-		--fs: (var(--fs-max) * 1px) - var(--step-fs) * (var(--max-b) * 1px - 100vw);
-		--delta-lh: (var(--lh-max) - var(--lh-min));
-		--step-lh: var(--delta-lh) / var(--delta-b);
-		--lh: (var(--lh-max) * 1px) - var(--step-lh) * (var(--max-b) * 1px - 100vw);
+
+		--delta-b: calc((var(--max-b) - var(--min-b)));
+		--delta-fs: calc((var(--fs-max) - var(--fs-min)));
+		--step-fs: calc(var(--delta-fs) / var(--delta-b));
+		--fs: calc((var(--fs-max) * 1px) - var(--step-fs) * (var(--max-b) * 1px - 100vw));
+
+		--delta-lh: calc((var(--lh-max) - var(--lh-min)));
+		--step-lh: calc(var(--delta-lh) / var(--delta-b));
+		--lh: calc((var(--lh-max) * 1px) - var(--step-lh) * (var(--max-b) * 1px - 100vw));
 	}
 }
 
@@ -104,10 +110,11 @@
 		--mntop-min: 36;
 		--max-b: 1280;
 		--min-b: 320;
-		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
-		--delta-b: (var(--max-b) - var(--min-b));
-		--step-mntop: var(--delta-mntop) / var(--delta-b);
-		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
+
+		--delta-mntop: calc((var(--mntop-max) - var(--mntop-min)));
+		--delta-b: calc((var(--max-b) - var(--min-b)));
+		--step-mntop: calc(var(--delta-mntop) / var(--delta-b));
+		--mntop: calc((var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw));
 	}
 }
 
@@ -123,18 +130,22 @@
 		--mnbot-min: 36;
 		--max-b: 1280;
 		--min-b: 320;
-		--delta-b: (var(--max-b) - var(--min-b));
-		--delta-mnleft: (var(--mnleft-max) - var(--mnleft-min));
-		--step-mnleft: var(--delta-mnleft) / var(--delta-b);
-		--mnleft: (var(--mnleft-max) * 1px) - var(--step-mnleft) * (var(--max-b) * 1px - 100vw);
-		--delta-mnright: (var(--mnright-max) - var(--mnright-min));
-		--step-mnright: var(--delta-mnright) / var(--delta-b);
-		--mnright: (var(--mnright-max) * 1px) - var(--step-mnright) * (var(--max-b) * 1px - 100vw);
-		--delta-mntop: (var(--mntop-max) - var(--mntop-min));
-		--step-mntop: var(--delta-mntop) / var(--delta-b);
-		--mntop: (var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw);
-		--delta-mnbot: (var(--mnbot-max) - var(--mnbot-min));
-		--step-mnbot: var(--delta-mnbot) / var(--delta-b);
-		--mnbot: (var(--mnbot-max) * 1px) - var(--step-mnbot) * (var(--max-b) * 1px - 100vw);
+
+		--delta-b: calc((var(--max-b) - var(--min-b)));
+		--delta-mnleft: calc((var(--mnleft-max) - var(--mnleft-min)));
+		--step-mnleft: calc(var(--delta-mnleft) / var(--delta-b));
+		--mnleft: calc((var(--mnleft-max) * 1px) - var(--step-mnleft) * (var(--max-b) * 1px - 100vw));
+
+		--delta-mnright: calc((var(--mnright-max) - var(--mnright-min)));
+		--step-mnright: calc(var(--delta-mnright) / var(--delta-b));
+		--mnright: calc((var(--mnright-max) * 1px) - var(--step-mnright) * (var(--max-b) * 1px - 100vw));
+
+		--delta-mntop: calc((var(--mntop-max) - var(--mntop-min)));
+		--step-mntop: calc(var(--delta-mntop) / var(--delta-b));
+		--mntop: calc((var(--mntop-max) * 1px) - var(--step-mntop) * (var(--max-b) * 1px - 100vw));
+
+		--delta-mnbot: calc((var(--mnbot-max) - var(--mnbot-min)));
+		--step-mnbot: calc(var(--delta-mnbot) / var(--delta-b));
+		--mnbot: calc((var(--mnbot-max) * 1px) - var(--step-mnbot) * (var(--max-b) * 1px - 100vw));
 	}
 }

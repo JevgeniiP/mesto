@@ -1,3 +1,10 @@
 .footer {
-	margin: calc(var(--mntop)) calc(var(--mnright)) calc(var(--mnbot)) calc(var(--mnleft));
+	max-width: 880px;
+	margin: 66px auto 60px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.footer {
+		margin: var(--mntop) var(--mnright) var(--mnbot) var(--mnleft);
+	}
 }

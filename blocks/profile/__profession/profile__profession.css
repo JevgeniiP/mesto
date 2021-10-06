@@ -2,17 +2,25 @@
 	font-family: "Inter", Arial, sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	font-size: calc(var(--fs));
-	line-height: calc(var(--lh));
+	font-size: 18px;
+	line-height: 22px;
 	color: #ffffff;
-	margin: 16px 0 0;
+	margin: 0;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	display: block;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+	.profile__profession {
+		font-size: var(--fs);
+		line-height: var(--lh);
+	}
 }
 
 @media screen and (max-width: 767px) {
 	.profile__profession {
-		margin: 14px 0 0;
+		justify-self: center;
 	}
 }
