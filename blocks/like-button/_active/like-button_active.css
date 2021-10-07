@@ -1,17 +1,10 @@
-.like-button {
+.like-button_active {
 	width: 22px;
 	height: 19px;
-	background-image: url(../../images/like-disabled.svg);
+	background-image: url(../../../images/like-active.svg);
 	background-size: 22px 19px;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: transparent;
 	cursor: pointer;
-	border: none;
-	opacity: 1;
-	transition: opacity 1s ease;
-}
-
-.like-button:hover {
-	opacity: 0.5;
 }
