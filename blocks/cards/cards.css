@@ -13,3 +13,9 @@
 		margin: var(--mntop) auto 0;
 	}
 }
+
+@media screen and (max-width: 896px) {
+	.cards {
+		max-width: 582px;
+	}
+}

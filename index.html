@@ -19,69 +19,70 @@
 				<img class="profile__photo" src="./images/profile-photo.jpg" alt="Фото профиля">
 				<div class="profile__info">
 					<h1 class="profile__name">Жак-Ив Кусто</h1>
-					<button class="profile__button-edit"></button>
+					<button type="button" class="profile__button-edit" aria-label="edit button"></button>
 					<p class="profile__profession">Исследователь океана</p>
 				</div>
 			</div>
-			<button class="profile__button-add"></button>
+			<button type="button" class="profile__button-add" aria-label="add button"></button>
 		</section>
 		<section class="cards">
 			<article class="card">
 				<img class="card__photo" src="./images/karachaevsk.jpg" alt="Карачаевск">
 				<div class="card__like-zone">
 					<h2 class="card__title">Карачаевск</h2>
-					<button class="like-button"></button>
+					<button type="button" class="like-button" aria-label="like button"></button>
 				</div>
 			</article>
 			<article class="card">
 				<img class="card__photo" src="./images/elbrus.jpg" alt="Эльбрус">
 				<div class="card__like-zone">
 					<h2 class="card__title">Гора Эльбрус</h2>
-					<button class="like-button"></button>
+					<button type="button" class="like-button" aria-label="like button"></button>
 				</div>
 			</article>
 			<article class="card">
 				<img class="card__photo" src="./images/dombai.jpg" alt="Домбай">
 				<div class="card__like-zone">
 					<h2 class="card__title">Домбай</h2>
-					<button class="like-button"></button>
+					<button type="button" class="like-button" aria-label="like button"></button>
 				</div>
 			</article>
 			<article class="card">
 				<img class="card__photo" src="./images/elbrus.jpg" alt="Эльбрус">
 				<div class="card__like-zone">
 					<h2 class="card__title">Гора Эльбрус</h2>
-					<button class="like-button"></button>
+					<button type="button" class="like-button" aria-label="like button"></button>
 				</div>
 			</article>
 			<article class="card">
 				<img class="card__photo" src="./images/dombai.jpg" alt="Домбай">
 				<div class="card__like-zone">
 					<h2 class="card__title">Домбай</h2>
-					<button class="like-button"></button>
+					<button type="button" class="like-button" aria-label="like button"></button>
 				</div>
 			</article>
 			<article class="card">
 				<img class="card__photo" src="./images/karachaevsk.jpg" alt="Карачаевск">
 				<div class="card__like-zone">
 					<h2 class="card__title">Карачаевск</h2>
-					<button class="like-button"></button>
+					<button type="button" class="like-button" aria-label="like button"></button>
 				</div>
 			</article>
 		</section>
 	</main>
 	<footer class="footer">
-		<p class="footer__copyright">&copy;2021 Mesto Russia</p>
+		<p class="footer__copyright">&copy; 2020 Mesto Russia</p>
 	</footer>
 
 	<div class="popup">
 		<div class="popup__content">
-			<button class="popup__close"></button>
+			<button type="button" class="popup__close" aria-label="popup close button"></button>
 			<h3 class="popup__title">Редактировать профиль</h3>
-			<form class="popup__form">
-				<input type="text" class="popup__input popup__input_name" placeholder="">
-				<input type="text" class="popup__input popup__input_proffesion" placeholder="">
-				<button type="submit" class="popup__save">Сохранить</button>
+			<form name="profile" class="popup__form">
+				<input name="name" type="text" class="popup__input popup__input_type_name" placeholder="Имя">
+				<input name="profession" type="text" class="popup__input popup__input_type_proffesion"
+					placeholder="Занятие">
+				<button type="submit" class="popup__save" aria-label="popup save buttonn">Сохранить</button>
 			</form>
 		</div>
 	</div>
