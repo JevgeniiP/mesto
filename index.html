@@ -27,68 +27,58 @@
 			<button type="button" class="profile__button-add" aria-label="Кнопка добавления фотографий"></button>
 		</section>
 		<section class="cards">
-			<article class="card">
-				<img class="card__photo" src="./images/karachaevsk.jpg" alt="Карачаевск">
-				<div class="card__like-zone">
-					<h2 class="card__title">Карачаевск</h2>
-					<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
-				</div>
-			</article>
-			<article class="card">
-				<img class="card__photo" src="./images/elbrus.jpg" alt="Эльбрус">
-				<div class="card__like-zone">
-					<h2 class="card__title">Гора Эльбрус</h2>
-					<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
-				</div>
-			</article>
-			<article class="card">
-				<img class="card__photo" src="./images/dombai.jpg" alt="Домбай">
-				<div class="card__like-zone">
-					<h2 class="card__title">Домбай</h2>
-					<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
-				</div>
-			</article>
-			<article class="card">
-				<img class="card__photo" src="./images/elbrus.jpg" alt="Эльбрус">
-				<div class="card__like-zone">
-					<h2 class="card__title">Гора Эльбрус</h2>
-					<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
-				</div>
-			</article>
-			<article class="card">
-				<img class="card__photo" src="./images/dombai.jpg" alt="Домбай">
-				<div class="card__like-zone">
-					<h2 class="card__title">Домбай</h2>
-					<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
-				</div>
-			</article>
-			<article class="card">
-				<img class="card__photo" src="./images/karachaevsk.jpg" alt="Карачаевск">
-				<div class="card__like-zone">
-					<h2 class="card__title">Карачаевск</h2>
-					<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
-				</div>
-			</article>
 		</section>
 	</main>
 	<footer class="footer">
 		<p class="footer__copyright">&copy; 2020 Mesto Russia</p>
 	</footer>
 
-	<div class="popup">
+	<div class="popup popup_type_profile preload">
 		<div class="popup__content">
-			<button type="button" class="popup__close"
+			<button type="button" class="popup__close popup__close_type_profile"
 				aria-label="Кнопка закрытия всплывающего окна редактирования профиля"></button>
 			<h3 class="popup__title">Редактировать профиль</h3>
-			<form name="profile" class="popup__form">
+			<form name="profile" class="popup__form popup__form_type_profile">
 				<input name="name" type="text" class="popup__input popup__input_type_name" placeholder="Имя">
 				<input name="profession" type="text" class="popup__input popup__input_type_proffesion"
 					placeholder="Занятие">
-				<button type="submit" class="popup__save"
+				<button type="submit" class="popup__save popup__save_type_profile"
 					aria-label="Кнопка применения внесенных изменений в профиль">Сохранить</button>
 			</form>
 		</div>
 	</div>
+	<div class="popup popup_type_cards preload">
+		<div class="popup__content">
+			<button type="button" class="popup__close popup__close_type_cards"
+				aria-label="Кнопка закрытия всплывающего окна добавления карточек"></button>
+			<h3 class="popup__title">Новое место</h3>
+			<form name="profile" class="popup__form popup__form_type_cards">
+				<input name="name" type="text" class="popup__input popup__input_type_card-name" placeholder="Название">
+				<input name="profession" type="text" class="popup__input popup__input_type_card-url"
+					placeholder="Ссылка на картинку">
+				<button type="submit" class="popup__save popup__save_type_cards"
+					aria-label="Кнопка добавления карточек">Создать</button>
+			</form>
+		</div>
+	</div>
+	<div class="popup popup_type_fullscreen preload">
+		<figure class="popup__full-image">
+			<button type="button" class="popup__close popup__close_type_fullscreen"
+				aria-label="Кнопка закрытия всплывающего окна добавления карточек"></button>
+			<img class="popup__photo" src="" alt="">
+			<figcaption class="popup__caption"></figcaption>
+		</figure>
+	</div>
+	<template id="template-card">
+		<article class="card">
+			<img class="card__photo" src="" alt="">
+			<button type="button" class="card__button-delete"></button>
+			<div class="card__like-zone">
+				<h2 class="card__title"></h2>
+				<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
+			</div>
+		</article>
+	</template>
 	<script src="./scripts/index.js"></script>
 </body>
 
