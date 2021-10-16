@@ -1,5 +1,5 @@
 .popup_is-open {
 	display: flex;
-	-webkit-animation: popupFadeIn 1s ease-in;
-	animation: popupFadeIn 1s ease-in;
+	visibility: visible;
+	opacity: 1;
 }

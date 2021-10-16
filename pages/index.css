@@ -1,6 +1,7 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/font.css);
 @import url(../vendor/root.css);
+@import url(../vendor/preload.css);
 
 @import url(../blocks/page/page.css);
 
@@ -29,7 +30,6 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 
-@import url(../blocks/popup/__keyframes/popup__keyframes.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/_is-open/popup_is-open.css);

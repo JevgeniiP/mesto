@@ -47,16 +47,21 @@ const initialCards = [
 	}
 ];
 
-
+window.onload = function () {
+	popupEditProfile.classList.remove('preload');
+	popupAddCards.classList.remove('preload');
+	popupFullscreen.classList.remove('preload');
+}
 
 initialCards.forEach(function (item) {
 
 	const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
 	const cardPhoto = cardElement.querySelector('.card__photo');
+
 	cardPhoto.src = item.link;
+	cardPhoto.alt = item.name;
 
 	cardElement.querySelector('.card__title').textContent = item.name;
-	cardElement.querySelector('.card__title').alt = item.name;
 
 	cardElement.querySelector('.like-button').addEventListener('click', function (event) {
 		event.target.classList.toggle('like-button_active');
@@ -112,10 +117,11 @@ function submitForm(event) {
 
 		const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
 		const cardPhoto = cardElement.querySelector('.card__photo');
+
 		cardPhoto.src = inputCardUrl.value;
+		cardPhoto.alt = inputCardName.value;
 
 		cardElement.querySelector('.card__title').textContent = inputCardName.value;
-		cardElement.querySelector('.card__title').alt = inputCardName.value;
 
 		cardElement.querySelector('.like-button').addEventListener('click', function (event) {
 			event.target.classList.toggle('like-button_active');
@@ -128,8 +134,8 @@ function submitForm(event) {
 		cardPhoto.addEventListener('click', function (event) {
 			popupFullscreen.classList.add('popup_is-open');
 			popupFullscreenPhoto.src = inputCardUrl.value;
+			popupFullscreenPhoto.alt = inputCardName.value;
 			popupFullscreenCaption.textContent = inputCardName.value;
-			popupFullscreenCaption.alt = inputCardName.value;
 		});
 
 		cardsList.prepend(cardElement);
