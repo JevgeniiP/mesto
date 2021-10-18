@@ -19,7 +19,7 @@ const popupFullscreenCaption = document.querySelector('.popup__caption');
 
 const cardTemplate = document.querySelector('#template-card').content;
 const cardsList = document.querySelector('.cards');
-
+//Подскажи пожалуйста, каким образом возможно перенести переменные в отдельный js и как связать файл с переменными и кодом. Спасибо:)
 const initialCards = [
 	{
 		name: 'Архыз',
@@ -53,7 +53,8 @@ window.onload = function () {
 	popupFullscreen.classList.remove('preload');
 }
 
-initialCards.forEach(function (item) {
+
+function createCard(item) {
 
 	const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
 	const cardPhoto = cardElement.querySelector('.card__photo');
@@ -71,86 +72,85 @@ initialCards.forEach(function (item) {
 		cardElement.remove();
 	});
 
-	cardPhoto.addEventListener('click', function (event) {
+	cardPhoto.addEventListener('click', function () {
 		popupFullscreen.classList.add('popup_is-open');
 		popupFullscreenPhoto.src = item.link;
 		popupFullscreenCaption.textContent = item.name;
 		popupFullscreenCaption.alt = item.name;
 	});
+	return cardElement; //Опытным путем пришел к тому, что здесь необходимо вернуть значение cardElement, но для чего ее возвращать  вданном случае?
+	//Думаю, что возвращать его нужно для того, чтобы при проходе цикла на каждый новый виток возваращалось значение этой константы. Я прав?
+}
+
+initialCards.forEach(function (item) {
+	const cardElement = createCard(item);
 
 	cardsList.append(cardElement);
 });
 
-function popupOpen(event) {
+function openPopup(popup) {
+	popup.classList.add('popup_is-open');
+}
+
+
+function popupEventOpen(event) {
 	if (event.target === editButton) {
 		inputName.value = profileName.textContent;
 		inputProfession.value = profileProfession.textContent;
-		popupEditProfile.classList.add('popup_is-open');
+		openPopup(popupEditProfile);
 	}
 	else if (event.target === cardsEditButton) {
-		popupAddCards.classList.add('popup_is-open');
+		openPopup(popupAddCards);
 	}
 }
 
-function popupClose(event) {
+function closePopup(popup) {
+	popup.classList.remove('popup_is-open');
+}
+
+function popupEventClose(event) {
 	if (event.target === popupProfileCloseButton || event.target === formProfile) {
-		popupEditProfile.classList.remove('popup_is-open');
+		closePopup(popupEditProfile);
 	}
 	else if (event.target === popupCardsCloseButton || event.target === formCards) {
-		popupAddCards.classList.remove('popup_is-open');
+		closePopup(popupAddCards);
 	}
 	else if (event.target === popupFullscreenClose) {
-		popupFullscreen.classList.remove('popup_is-open');
+		closePopup(popupFullscreen);
 	}
 }
 
-function submitForm(event) {
-	if (event.target === formProfile) {
-		event.preventDefault();
-
-		profileName.textContent = inputName.value;
-		profileProfession.textContent = inputProfession.value;
-		popupClose(event);
-	}
-	else if (event.target === formCards) {
-		event.preventDefault();
-
-		const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-		const cardPhoto = cardElement.querySelector('.card__photo');
-
-		cardPhoto.src = inputCardUrl.value;
-		cardPhoto.alt = inputCardName.value;
-
-		cardElement.querySelector('.card__title').textContent = inputCardName.value;
-
-		cardElement.querySelector('.like-button').addEventListener('click', function (event) {
-			event.target.classList.toggle('like-button_active');
-		});
-
-		cardElement.querySelector('.card__button-delete').addEventListener('click', function () {
-			cardElement.remove();
-		});
-
-		cardPhoto.addEventListener('click', function (event) {
-			popupFullscreen.classList.add('popup_is-open');
-			popupFullscreenPhoto.src = inputCardUrl.value;
-			popupFullscreenPhoto.alt = inputCardName.value;
-			popupFullscreenCaption.textContent = inputCardName.value;
-		});
-
-		cardsList.prepend(cardElement);
-		popupClose(event);
-	}
-
+function submitProfileForm(event) {
+	event.preventDefault();
+	profileName.textContent = inputName.value;
+	profileProfession.textContent = inputProfession.value;
+	popupEventClose(event);
 }
 
-editButton.addEventListener('click', popupOpen);
-cardsEditButton.addEventListener('click', popupOpen);
+function refreshInputForm(input) {
+	input.value = '';
+}
 
-popupProfileCloseButton.addEventListener('click', popupClose);
-popupCardsCloseButton.addEventListener('click', popupClose);
+function submitCardsForm(event) {
+	event.preventDefault();
+	const item = {
+		name: inputCardName.value,
+		link: inputCardUrl.value,
+	}
+	const cardElement = createCard(item);
+	cardsList.prepend(cardElement);
+	popupEventClose(event);
+	refreshInputForm(inputCardName);
+	refreshInputForm(inputCardUrl);
+}
 
-formProfile.addEventListener('submit', submitForm);
-formCards.addEventListener('submit', submitForm);
+editButton.addEventListener('click', popupEventOpen);
+cardsEditButton.addEventListener('click', popupEventOpen);
 
-popupFullscreenClose.addEventListener('click', popupClose);
+popupProfileCloseButton.addEventListener('click', popupEventClose);
+popupCardsCloseButton.addEventListener('click', popupEventClose);
+
+formProfile.addEventListener('submit', submitProfileForm);
+formCards.addEventListener('submit', submitCardsForm);
+
+popupFullscreenClose.addEventListener('click', popupEventClose);

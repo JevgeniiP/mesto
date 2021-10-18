@@ -39,8 +39,8 @@
 				aria-label="Кнопка закрытия всплывающего окна редактирования профиля"></button>
 			<h3 class="popup__title">Редактировать профиль</h3>
 			<form name="profile" class="popup__form popup__form_type_profile">
-				<input name="name" type="text" class="popup__input popup__input_type_name" placeholder="Имя">
-				<input name="profession" type="text" class="popup__input popup__input_type_proffesion"
+				<input name="namePopupProfile" type="text" class="popup__input popup__input_type_name" placeholder="Имя">
+				<input name="professionPopupProfile" type="text" class="popup__input popup__input_type_proffesion"
 					placeholder="Занятие">
 				<button type="submit" class="popup__save popup__save_type_profile"
 					aria-label="Кнопка применения внесенных изменений в профиль">Сохранить</button>
@@ -53,8 +53,9 @@
 				aria-label="Кнопка закрытия всплывающего окна добавления карточек"></button>
 			<h3 class="popup__title">Новое место</h3>
 			<form name="profile" class="popup__form popup__form_type_cards">
-				<input name="name" type="text" class="popup__input popup__input_type_card-name" placeholder="Название">
-				<input name="profession" type="text" class="popup__input popup__input_type_card-url"
+				<input name="namePopupCard" type="text" class="popup__input popup__input_type_card-name"
+					placeholder="Название">
+				<input name="urlPopupCard" type="text" class="popup__input popup__input_type_card-url"
 					placeholder="Ссылка на картинку">
 				<button type="submit" class="popup__save popup__save_type_cards"
 					aria-label="Кнопка добавления карточек">Создать</button>
@@ -65,13 +66,13 @@
 		<figure class="popup__full-image">
 			<button type="button" class="popup__close popup__close_type_fullscreen"
 				aria-label="Кнопка закрытия всплывающего окна добавления карточек"></button>
-			<img class="popup__photo" src="" alt="">
+			<img class="popup__photo" src="#" alt="Увеличенная фотография">
 			<figcaption class="popup__caption"></figcaption>
 		</figure>
 	</div>
 	<template id="template-card">
 		<article class="card">
-			<img class="card__photo" src="" alt="">
+			<img class="card__photo" src="#" alt="Фотография">
 			<button type="button" class="card__button-delete"></button>
 			<div class="card__like-zone">
 				<h2 class="card__title"></h2>
