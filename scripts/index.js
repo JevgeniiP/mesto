@@ -78,8 +78,7 @@ function createCard(item) {
 		popupFullscreenCaption.textContent = item.name;
 		popupFullscreenCaption.alt = item.name;
 	});
-	return cardElement; //Опытным путем пришел к тому, что здесь необходимо вернуть значение cardElement, но для чего ее возвращать  вданном случае?
-	//Думаю, что возвращать его нужно для того, чтобы при проходе цикла на каждый новый виток возваращалось значение этой константы. Я прав?
+	return cardElement;
 }
 
 initialCards.forEach(function (item) {
@@ -92,39 +91,15 @@ function openPopup(popup) {
 	popup.classList.add('popup_is-open');
 }
 
-
-function popupEventOpen(event) {
-	if (event.target === editButton) {
-		inputName.value = profileName.textContent;
-		inputProfession.value = profileProfession.textContent;
-		openPopup(popupEditProfile);
-	}
-	else if (event.target === cardsEditButton) {
-		openPopup(popupAddCards);
-	}
-}
-
 function closePopup(popup) {
 	popup.classList.remove('popup_is-open');
-}
-
-function popupEventClose(event) {
-	if (event.target === popupProfileCloseButton || event.target === formProfile) {
-		closePopup(popupEditProfile);
-	}
-	else if (event.target === popupCardsCloseButton || event.target === formCards) {
-		closePopup(popupAddCards);
-	}
-	else if (event.target === popupFullscreenClose) {
-		closePopup(popupFullscreen);
-	}
 }
 
 function submitProfileForm(event) {
 	event.preventDefault();
 	profileName.textContent = inputName.value;
 	profileProfession.textContent = inputProfession.value;
-	popupEventClose(event);
+	closePopup(popupEditProfile);
 }
 
 function refreshInputForm(input) {
@@ -139,18 +114,24 @@ function submitCardsForm(event) {
 	}
 	const cardElement = createCard(item);
 	cardsList.prepend(cardElement);
-	popupEventClose(event);
+	closePopup(popupAddCards);
 	refreshInputForm(inputCardName);
 	refreshInputForm(inputCardUrl);
 }
 
-editButton.addEventListener('click', popupEventOpen);
-cardsEditButton.addEventListener('click', popupEventOpen);
+editButton.addEventListener('click', () => {
+	inputName.value = profileName.textContent;
+	inputProfession.value = profileProfession.textContent;
+	openPopup(popupEditProfile);
+});
+cardsEditButton.addEventListener('click', () => {
+	openPopup(popupAddCards);
+});
 
-popupProfileCloseButton.addEventListener('click', popupEventClose);
-popupCardsCloseButton.addEventListener('click', popupEventClose);
+popupProfileCloseButton.addEventListener('click', () => { closePopup(popupEditProfile) });
+popupCardsCloseButton.addEventListener('click', () => { closePopup(popupAddCards) });
 
 formProfile.addEventListener('submit', submitProfileForm);
 formCards.addEventListener('submit', submitCardsForm);
 
-popupFullscreenClose.addEventListener('click', popupEventClose);
+popupFullscreenClose.addEventListener('click', () => { closePopup(popupFullscreen) });
