@@ -16,6 +16,7 @@ const popupAddCards = document.querySelector('.popup_type_cards');
 const popupFullscreen = document.querySelector('.popup_type_fullscreen');
 const popupFullscreenPhoto = document.querySelector('.popup__photo');
 const popupFullscreenCaption = document.querySelector('.popup__caption');
+const popupSaveButton = document.querySelector('.popup__save_type_profile');
 
 const cardTemplate = document.querySelector('#template-card').content;
 const cardsList = document.querySelector('.cards');
@@ -95,6 +96,18 @@ function closePopup(popup) {
 	popup.classList.remove('popup_is-open');
 }
 
+function popupClickHandler(event, popup) {
+	if (event.target.classList.contains('popup')) {
+		closePopup(popup);
+	}
+};
+
+function popupKeyHandler(event, popup) {
+	if (event.key === 'Escape') {
+		closePopup(popup);
+	}
+};
+
 function submitProfileForm(event) {
 	event.preventDefault();
 	profileName.textContent = inputName.value;
@@ -122,6 +135,8 @@ function submitCardsForm(event) {
 editButton.addEventListener('click', () => {
 	inputName.value = profileName.textContent;
 	inputProfession.value = profileProfession.textContent;
+	popupSaveButton.removeAttribute('disabled');
+	popupSaveButton.classList.remove('popup__save_invalid');
 	openPopup(popupEditProfile);
 });
 cardsEditButton.addEventListener('click', () => {
@@ -134,4 +149,15 @@ popupCardsCloseButton.addEventListener('click', () => { closePopup(popupAddCards
 formProfile.addEventListener('submit', submitProfileForm);
 formCards.addEventListener('submit', submitCardsForm);
 
-popupFullscreenClose.addEventListener('click', () => { closePopup(popupFulasdlscreen) });
+popupFullscreenClose.addEventListener('click', () => { closePopup(popupFullscreen) });
+
+popupFullscreen.addEventListener('mouseup', () => { popupClickHandler(event, popupFullscreen) });
+popupEditProfile.addEventListener('mouseup', () => { popupClickHandler(event, popupEditProfile) });
+popupAddCards.addEventListener('mouseup', () => { popupClickHandler(event, popupAddCards) });
+
+document.addEventListener('keydown', (event) => {
+	popupKeyHandler(event, popupFullscreen);
+	popupKeyHandler(event, popupEditProfile);
+	popupKeyHandler(event, popupAddCards);
+});
+
