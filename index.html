@@ -38,10 +38,14 @@
 			<button type="button" class="popup__close popup__close_type_profile"
 				aria-label="Кнопка закрытия всплывающего окна редактирования профиля"></button>
 			<h3 class="popup__title">Редактировать профиль</h3>
-			<form name="profile" class="popup__form popup__form_type_profile">
-				<input name="namePopupProfile" type="text" class="popup__input popup__input_type_name" placeholder="Имя">
-				<input name="professionPopupProfile" type="text" class="popup__input popup__input_type_proffesion"
+			<form name="profile" class="popup__form popup__form_type_profile" novalidate>
+				<input required minlength="2" maxlength="40" autocomplete="off" id="nameProfile" name="nameProfile"
+					type="text" class="popup__input popup__input_type_name" placeholder="Имя">
+				<span id="nameProfile-error" class="error"></span>
+				<input required minlength="2" maxlength="200" autocomplete="off" id="professionProfile"
+					name="professionProfile" type="text" class="popup__input popup__input_type_proffesion"
 					placeholder="Занятие">
+				<span id="professionProfile-error" class="error"></span>
 				<button type="submit" class="popup__save popup__save_type_profile"
 					aria-label="Кнопка применения внесенных изменений в профиль">Сохранить</button>
 			</form>
@@ -52,14 +56,16 @@
 			<button type="button" class="popup__close popup__close_type_cards"
 				aria-label="Кнопка закрытия всплывающего окна добавления карточек"></button>
 			<h3 class="popup__title">Новое место</h3>
-			<form name="cards" class="popup__form popup__form_type_cards">
+			<form name="cards" class="popup__form popup__form_type_cards" novalidate>
 				<!--Извиняюсь. Поправил 'name' инпутов, а про форму забыл. Пользуясь случаем, зная, что этот фрагмент
 					будет проверяться хотел бы продублировать просьбу://Подскажи пожалуйста статью или небольшой пример
 					(знаю, что наглею), каким связать файл содержащий	переменные и код. Спасибо:)-->
-				<input name="namePopupCard" type="text" class="popup__input popup__input_type_card-name"
-					placeholder="Название">
-				<input name="urlPopupCard" type="text" class="popup__input popup__input_type_card-url"
-					placeholder="Ссылка на картинку">
+				<input required minlength="2" maxlength="30" autocomplete="off" id="nameCard" name="nameCard" type="text"
+					class="popup__input popup__input_type_card-name" placeholder="Название">
+				<span id="nameCard-error" class="error"></span>
+				<input required autocomplete="off" id="urlCard" name="urlCard" type="url"
+					class="popup__input popup__input_type_card-url" placeholder="Ссылка на картинку">
+				<span id="urlCard-error" class="error"></span>
 				<button type="submit" class="popup__save popup__save_type_cards"
 					aria-label="Кнопка добавления карточек">Создать</button>
 			</form>
@@ -84,6 +90,7 @@
 		</article>
 	</template>
 	<script src="./scripts/index.js"></script>
+	<script src="./scripts/validation.js"></script>
 </body>
 
 
