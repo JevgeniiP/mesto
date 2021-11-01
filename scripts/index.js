@@ -134,4 +134,4 @@ popupCardsCloseButton.addEventListener('click', () => { closePopup(popupAddCards
 formProfile.addEventListener('submit', submitProfileForm);
 formCards.addEventListener('submit', submitCardsForm);
 
-popupFullscreenClose.addEventListener('click', () => { closePopup(popupFullscreen) });
+popupFullscreenClose.addEventListener('click', () => { closePopup(popupFulasdlscreen) });
