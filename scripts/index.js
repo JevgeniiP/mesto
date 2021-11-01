@@ -160,3 +160,4 @@ document.addEventListener('keydown', (event) => {
 	popupKeyHandler(event, popupEditProfile);
 	popupKeyHandler(event, popupAddCards);
 });
+
