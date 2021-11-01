@@ -20,7 +20,7 @@ const popupSaveButton = document.querySelector('.popup__save_type_profile');
 
 const cardTemplate = document.querySelector('#template-card').content;
 const cardsList = document.querySelector('.cards');
-//Подскажи пожалуйста, каким образом возможно перенести переменные в отдельный js и как связать файл с переменными и кодом. Спасибо:)
+
 const initialCards = [
 	{
 		name: 'Архыз',
