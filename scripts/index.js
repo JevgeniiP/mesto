@@ -74,7 +74,7 @@ function createCard(item) {
 	});
 
 	cardPhoto.addEventListener('click', function () {
-		popupFullscreen.classList.add('popup_is-open');
+		openPopup(popupFullscreen);
 		popupFullscreenPhoto.src = item.link;
 		popupFullscreenCaption.textContent = item.name;
 		popupFullscreenCaption.alt = item.name;
@@ -90,21 +90,23 @@ initialCards.forEach(function (item) {
 
 function openPopup(popup) {
 	popup.classList.add('popup_is-open');
+	document.addEventListener('keydown', popupKeyHandler);
 }
 
 function closePopup(popup) {
 	popup.classList.remove('popup_is-open');
+	document.removeEventListener('keydown', popupKeyHandler);
 }
 
 function popupClickHandler(event, popup) {
 	if (event.target.classList.contains('popup')) {
-		closePopup(popup);
+		closePopup(document.querySelector('.popup_is-open'));
 	}
 };
 
-function popupKeyHandler(event, popup) {
+function popupKeyHandler(event) {
 	if (event.key === 'Escape') {
-		closePopup(popup);
+		closePopup(document.querySelector('.popup_is-open'));
 	}
 };
 
@@ -126,17 +128,17 @@ function submitCardsForm(event) {
 		link: inputCardUrl.value,
 	}
 	const cardElement = createCard(item);
+	const buttonCreateCards = document.querySelector('.popup__save_type_cards');
 	cardsList.prepend(cardElement);
 	closePopup(popupAddCards);
 	refreshInputForm(inputCardName);
 	refreshInputForm(inputCardUrl);
+	buttonState(buttonCreateCards);
 }
 
 editButton.addEventListener('click', () => {
 	inputName.value = profileName.textContent;
 	inputProfession.value = profileProfession.textContent;
-	popupSaveButton.removeAttribute('disabled');
-	popupSaveButton.classList.remove('popup__save_invalid');
 	openPopup(popupEditProfile);
 });
 cardsEditButton.addEventListener('click', () => {
@@ -155,9 +157,4 @@ popupFullscreen.addEventListener('mouseup', () => { popupClickHandler(event, pop
 popupEditProfile.addEventListener('mouseup', () => { popupClickHandler(event, popupEditProfile) });
 popupAddCards.addEventListener('mouseup', () => { popupClickHandler(event, popupAddCards) });
 
-document.addEventListener('keydown', (event) => {
-	popupKeyHandler(event, popupFullscreen);
-	popupKeyHandler(event, popupEditProfile);
-	popupKeyHandler(event, popupAddCards);
-});
 

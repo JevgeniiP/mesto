@@ -15,18 +15,18 @@ function enableValidation(config) {
 };
 
 function setFormListeners(form, config) {
-	form.addEventListener('submit', handleSubmit);
-	form.addEventListener('input', () => setSubmitButtonState(form, config))
 
 	const inputs = Array.from(form.querySelectorAll(config.inputSelector));
 
 	inputs.forEach((input) => {
-		input.addEventListener('input',
-			() => handleFieldValidation(input, form, config))
-	})
-	setSubmitButtonState(form, config);
-};
+		input.addEventListener('input', function () {
+			setSubmitButtonState(form, config)
+			handleFieldValidation(input, form, config)
+		});
+	});
 
+
+};
 
 function setSubmitButtonState(form, config) {
 	const button = form.querySelector(config.submitButtonSelector);
@@ -34,11 +34,6 @@ function setSubmitButtonState(form, config) {
 	button.disabled = !form.checkValidity();
 	button.classList.toggle(config.submitButtonErrorClass, !form.checkValidity())
 };
-
-
-function handleSubmit(event) {
-	event.preventDefault();
-}
 
 function handleFieldValidation(input, form, config) {
 	if (!input.validity.valid) {
@@ -60,4 +55,9 @@ function hideError(input, form, config) {
 	input.classList.remove(config.inputErrorClass);
 
 	errorElement.textContent = '';
+};
+
+function buttonState(button) {
+	button.setAttribute('disabled', '');
+	button.classList.add('popup__save_invalid');
 };
