@@ -1,11 +1,3 @@
-enableValidation({
-	formSelector: '.popup__form',
-	inputSelector: '.popup__input',
-	inputErrorClass: 'popup__input_state_invalid',
-	submitButtonSelector: '.popup__save',
-	submitButtonErrorClass: 'popup__save_invalid',
-});
-
 function enableValidation(config) {
 	const forms = Array.from(document.querySelectorAll(config.formSelector));
 
@@ -56,8 +48,14 @@ function hideError(input, form, config) {
 
 	errorElement.textContent = '';
 };
-
-function buttonState(button) {
-	button.setAttribute('disabled', '');
-	button.classList.add('popup__save_invalid');
-};
+//изначально я и писал через объявление объекта. Но в требованиях
+// к заданию указан следующий формат объявления функции:
+/*enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+});*/
+enableValidation(validationConfig);
