@@ -7,3 +7,9 @@
 	line-height: 15px;
 	color: #ff0000;
 }
+
+@media screen and (max-width: 768px) {
+	.error {
+		max-width: 238px;
+	}
+}
