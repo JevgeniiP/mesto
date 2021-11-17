@@ -1,4 +1,4 @@
-/*const popupEditProfile = document.querySelector('.popup_type_profile');
+const popupEditProfile = document.querySelector('.popup_type_profile');
 const popupProfileCloseButton = document.querySelector('.popup__close_type_profile');
 const popupCardsCloseButton = document.querySelector('.popup__close_type_cards');
 const popupFullscreenClose = document.querySelector('.popup__close_type_fullscreen');
@@ -61,6 +61,7 @@ window.onload = function () {
 	popupAddCards.classList.remove('preload');
 	popupFullscreen.classList.remove('preload');
 }
+
 
 function createCard(item) {
 
@@ -163,4 +164,3 @@ popupFullscreenClose.addEventListener('click', () => { closePopup(popupFullscree
 popupFullscreen.addEventListener('click', () => { popupClickHandler(event, popupFullscreen) });
 popupEditProfile.addEventListener('click', () => { popupClickHandler(event, popupEditProfile) });
 popupAddCards.addEventListener('click', () => { popupClickHandler(event, popupAddCards) });
-*/

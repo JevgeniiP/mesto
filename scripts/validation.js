@@ -1,4 +1,4 @@
-function enableValidation(config) {
+/*function enableValidation(config) {
 	const forms = Array.from(document.querySelectorAll(config.formSelector));
 
 	forms.forEach((form) => {
@@ -48,14 +48,6 @@ function hideError(input, form, config) {
 
 	errorElement.textContent = '';
 };
-//изначально я и писал через объявление объекта. Но в требованиях
-// к заданию указан следующий формат объявления функции:
-/*enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-});*/
+
 enableValidation(validationConfig);
+*/
