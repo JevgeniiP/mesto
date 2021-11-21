@@ -1,11 +1,8 @@
 export class Card {
-	constructor(name, link) {
+	constructor(name, link, templateElement) {
 		this._name = name;
 		this._link = link;
-	}
-	_getTemplate() {
-		const cardElement = document.querySelector('#template-card').content.querySelector('.card').cloneNode(true);
-		return cardElement;
+		this._templateElement = templateElement.content.querySelector('.card').cloneNode(true);
 	}
 
 	_likeHandler(event) {
@@ -13,7 +10,7 @@ export class Card {
 	}
 
 	_cardDeleteHandler() {
-		this._element.remove();
+		this._templateElement.remove();
 	}
 
 	_handleOpenPopup() {
@@ -37,18 +34,18 @@ export class Card {
 	}
 
 	_cardDeleteListener() {
-		this._element.querySelector('.card__button-delete').addEventListener('click', () => {
+		this._templateElement.querySelector('.card__button-delete').addEventListener('click', () => {
 			this._cardDeleteHandler();
 		})
 	}
 
 	_setLikeListener() {
-		this._element.querySelector('.like-button').addEventListener('click', (event) => {
+		this._templateElement.querySelector('.like-button').addEventListener('click', (event) => {
 			this._likeHandler(event);
 		});
 	};
 	_setOpenPopupListener() {
-		this._element.querySelector('.card__photo').addEventListener('click', () => {
+		this._templateElement.querySelector('.card__photo').addEventListener('click', () => {
 			this._handleOpenPopup();
 			document.querySelector('.popup__photo').src = this._link;
 			document.querySelector('.popup__caption').textContent = this._name;
@@ -68,15 +65,14 @@ export class Card {
 	}
 
 	generateCard() {
-		this._element = this._getTemplate();
 		this._setLikeListener();
 		this._cardDeleteListener();
 		this._setOpenPopupListener();
 		this._setClosePopupListener();
-		this._element.querySelector('.card__photo').src = this._link;
-		this._element.querySelector('.card__photo').alt = this._name;//card__title
-		this._element.querySelector('.card__title').textContent = this._name;
-		return this._element;
+		this._templateElement.querySelector('.card__photo').src = this._link;
+		this._templateElement.querySelector('.card__photo').alt = this._name;//card__title
+		this._templateElement.querySelector('.card__title').textContent = this._name;
+		return this._templateElement;
 	}
 
 };
