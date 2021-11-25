@@ -18,7 +18,12 @@ window.onload = function () {
 }
 //Подскажи пожалуйста правильно ли я разложил переменные по файлам?
 initialCards.forEach((item) => {
+
 	appendCards.append(newCard(item));
+
+
+
+
 })
 
 const formProfileValidation = new FormValidator(validationConfig, formProfile);
@@ -27,10 +32,10 @@ formProfileValidation.enableValidation();
 const formCardsValidation = new FormValidator(validationConfig, formCards);
 formCardsValidation.enableValidation();
 
+
 function newCard(item) {
 	const card = new Card(item.name, item.link, templateCards, openPopup);
 	return card.generateCard();
-
 }
 
 function openPopup(popup) {

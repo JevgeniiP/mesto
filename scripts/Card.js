@@ -14,6 +14,7 @@ export class Card {
 	_cardDeleteHandler() {
 		this._templateElement.remove();
 		this._templateElement = null;
+
 	}
 
 	_cardDeleteListener() {
