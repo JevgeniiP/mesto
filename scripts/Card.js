@@ -12,7 +12,8 @@ export class Card {
 	}
 
 	_cardDeleteHandler() {
-		this._templateElement.remove();//!Можете объяснить, как зануллить элемент?Спасибо:)
+		this._templateElement.remove();
+		this._templateElement = null;
 	}
 
 	_cardDeleteListener() {

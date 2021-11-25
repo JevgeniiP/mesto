@@ -16,11 +16,9 @@ window.onload = function () {
 	popupCards.classList.remove('preload');
 	popupFullscreen.classList.remove('preload');
 }
-
+//Подскажи пожалуйста правильно ли я разложил переменные по файлам?
 initialCards.forEach((item) => {
-	const card = new Card(item.name, item.link, templateCards, openPopup);
-	newCard(card);
-
+	appendCards.append(newCard(item));
 })
 
 const formProfileValidation = new FormValidator(validationConfig, formProfile);
@@ -29,9 +27,10 @@ formProfileValidation.enableValidation();
 const formCardsValidation = new FormValidator(validationConfig, formCards);
 formCardsValidation.enableValidation();
 
-function newCard(card) {
-	const cardElement = card.generateCard();
-	appendCards.append(cardElement);
+function newCard(item) {
+	const card = new Card(item.name, item.link, templateCards, openPopup);
+	return card.generateCard();
+
 }
 
 function openPopup(popup) {
@@ -74,10 +73,8 @@ function submitCardsForm(event) {
 		link: inputCardUrl.value,
 	}
 
-	const card = new Card(item.name, item.link, templateCards, openPopup);
-	const cardElement = card.generateCard();
-
-	appendCards.prepend(cardElement);
+	const cards = newCard(item);
+	appendCards.prepend(cards);
 
 	closePopup(popupCards);
 	refreshInputForm(inputCardName);

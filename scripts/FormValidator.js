@@ -2,13 +2,12 @@ export class FormValidator {
 	constructor(config, form) {
 		this._config = config;
 		this._form = form;
+		this._submitButton = this._form.querySelector(this._config.submitButtonSelector);
 	}
 
 	setSubmitButtonState() {
-		const button = this._form.querySelector(this._config.submitButtonSelector);
-
-		button.disabled = !this._form.checkValidity();
-		button.classList.toggle(this._config.submitButtonErrorClass, !this._form.checkValidity())
+		this._submitButton.disabled = !this._form.checkValidity();
+		this._submitButton.classList.toggle(this._config.submitButtonErrorClass, !this._form.checkValidity())
 	};
 
 	_handleFieldValidation(input) {
