@@ -18,12 +18,7 @@ window.onload = function () {
 }
 //Подскажи пожалуйста правильно ли я разложил переменные по файлам?
 initialCards.forEach((item) => {
-
 	appendCards.append(newCard(item));
-
-
-
-
 })
 
 const formProfileValidation = new FormValidator(validationConfig, formProfile);
