@@ -3,6 +3,7 @@ export class FormValidator {
 		this._config = config;
 		this._form = form;
 		this._submitButton = this._form.querySelector(this._config.submitButtonSelector);
+		this._inputs = Array.from(this._form.querySelectorAll(this._config.inputSelector));
 	}
 
 	setSubmitButtonState() {
@@ -35,8 +36,7 @@ export class FormValidator {
 		this._form.addEventListener('submit', (event) => { event.preventDefault(); });
 		this._form.addEventListener('input', () => this.setSubmitButtonState());
 
-		const inputs = Array.from(this._form.querySelectorAll(this._config.inputSelector));
-		inputs.forEach(inputEl => {
+		this._inputs.forEach(inputEl => {
 			inputEl.addEventListener('input', () => {
 				this._handleFieldValidation(inputEl);
 			});

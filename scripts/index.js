@@ -73,8 +73,8 @@ function submitCardsForm(event) {
 		link: inputCardUrl.value,
 	}
 
-	const cards = newCard(item);
-	appendCards.prepend(cards);
+	const card = newCard(item);
+	appendCards.prepend(card);
 
 	closePopup(popupCards);
 	refreshInputForm(inputCardName);
