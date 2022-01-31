@@ -32,8 +32,18 @@ export class FormValidator {
 		errorElement.textContent = '';
 	};
 
+	publicHideError() {
+		this._inputs.forEach((input) => {
+			const errorElement = this._form.querySelector(`#${input.id}-error`);
+
+			input.classList.remove(this._config.inputErrorClass);
+			errorElement.textContent = '';
+		});
+		this.setSubmitButtonState();
+
+	}
+
 	enableValidation() {
-		this._form.addEventListener('submit', (event) => { event.preventDefault(); });
 		this._form.addEventListener('input', () => this.setSubmitButtonState());
 
 		this._inputs.forEach(inputEl => {

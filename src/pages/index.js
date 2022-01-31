@@ -9,7 +9,7 @@ import { PopupWithImage } from '../components/PopupWithImage.js';
 
 
 
-import { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, popupProfileCloseButton, inputName, inputProfession, templateCards, formCards, cardsEditButton, popupCardsCloseButton, inputCardName, inputCardUrl, popupFullscreenCloseButton, popupFullscreen, initialCards, validationConfig } from '../components/Constants.js'
+import { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, inputCardName, inputCardUrl, popupFullscreen, initialCards, validationConfig, popupPhoto, popupCaption } from '../utils/Constants.js'
 
 
 
@@ -26,15 +26,15 @@ addFormValidationImage.enableValidation();
 addFormValidationProfile.enableValidation();
 
 
-function createElements(data) {
+function createElement(data) {
 	const card = new Card(data, '.template', () => imagePopup.open(data));
-	section.addItem(card.generateCard());
+	section.addItem(card.generateCard()); //Я всю голову себе сломал. Не понимаю, как это реализовать...
 }
 
 const section = new Section(
 	{
 		items: initialCards,
-		renderer: createElements,
+		renderer: createElement,
 	},
 	appendCards
 );
@@ -45,23 +45,26 @@ const profileInfo = new UserInfo({
 	profession: profileProfession,
 });
 
-const imagePopup = new PopupWithImage(popupFullscreen);
+const imagePopup = new PopupWithImage(popupFullscreen, popupPhoto, popupCaption);
 const profilePopup = new PopupWithForm(popupProfile, handleProfileSubmit);//!
 const cardPopup = new PopupWithForm(popupCards, addNewElement);//!
 
-function profileEditHandler() {
+function handleProfileEditForm() {
 	const { name, profession } = profileInfo.getUserInfo();
 	inputName.value = name;
 	inputProfession.value = profession;
+	addFormValidationProfile.publicHideError();
 	profilePopup.open();
+
 }
 
 function handleProfileSubmit(data) {
 	profileInfo.setUserInfo(data);
 }
 
-function elementEditHandler() {
-	cardPopup.open()
+function elementEditHandler() { //Пробую убрать баг с активным положением кнопки после создания карточки. Вообще ничего не выходит:( Каким образом передать в сабмит? Расширять класс popupwithform? Можно помощь зала?)
+	addFormValidationImage.publicHideError();
+	cardPopup.open();
 	inputCardName.value = ''
 	inputCardUrl.value = ''
 }
@@ -71,10 +74,10 @@ function addNewElement() {
 		name: inputCardName.value,
 		link: inputCardUrl.value,
 	}
-	createElements(newValues);
+	createElement(newValues);
 };
 
-editButtonProfile.addEventListener('click', profileEditHandler);
+editButtonProfile.addEventListener('click', handleProfileEditForm);
 cardsEditButton.addEventListener('click', elementEditHandler);
 imagePopup.setEventListeners();
 profilePopup.setEventListeners();
