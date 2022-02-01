@@ -34,10 +34,7 @@ export class FormValidator {
 
 	publicHideError() {
 		this._inputs.forEach((input) => {
-			const errorElement = this._form.querySelector(`#${input.id}-error`);
-
-			input.classList.remove(this._config.inputErrorClass);
-			errorElement.textContent = '';
+			this._hideError(input);
 		});
 		this.setSubmitButtonState();
 
