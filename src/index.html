@@ -5,18 +5,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Place</title>
-	<!--<link rel="stylesheet" href="../src/pages/index.css">-->
+	<link rel="stylesheet" href="../src/pages/index.css">
 </head>
 
 
 <body class="page">
 	<header class="header">
-		<img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt=" Логотип">
+		<img class="header__logo" src='./images/header-logo.svg' alt=" Логотип">
 	</header>
 	<main>
 		<section class="profile">
 			<div class="profile__items">
-				<img class="profile__photo" src="<%=require('./images/profile-photo.jpg')%>" alt=" Фото профиля">
+				<img class="profile__photo" src='./images/profile-photo.jpg' alt=" Фото профиля">
+				<button class="profile__button-photo-edit"></button>
 				<div class="profile__info">
 					<h1 class="profile__name">Жак-Ив Кусто</h1>
 					<button type="button" class="profile__button-edit"
@@ -76,6 +77,31 @@
 			<figcaption class="popup__caption"></figcaption>
 		</figure>
 	</div>
+	<div class="popup popup_type_confirm preload">
+		<div class="popup__confirm">
+			<button type="button" class="popup__close popup__close_type_confirm"
+				aria-label="Кнопка закрытия окна удаления карточек"></button>
+			<h3 class="popup__title_confirm">Вы уверены?</h3>
+			<div class="confirm-button">
+				<button type="submit" class="popup__save popup__save_type_confirm"
+					aria-label="Кнопка применения удаления карточки">Да</button>
+			</div>
+		</div>
+	</div>
+	<div class="popup popup_type_avatar preload">
+		<div class="popup__content">
+			<button type="button" class="popup__close popup__close_type_avatar"
+				aria-label="Кнопка закрытия попапа редактора аватара профиля"></button>
+			<h3 class="popup__title">Обновить аватар</h3>
+			<form name="avatar" class="popup__form popup__form_type_avatar" novalidate>
+				<input required autocomplete="off" id="url-card" name="url-card" type="url"
+					class="popup__input popup__input_type_avatar-url" placeholder="Ссылка на картинку">
+				<span id="url-avatar-error" class="error"></span>
+				<button disabled type="submit" class="popup__save popup__save_invalid  popup__save_type_avatar"
+					aria-label="Кнопка сохранения картинки аватара профиля">Сохранить</button>
+			</form>
+		</div>
+	</div>
 	<template id="template-card" class="template">
 		<article class="card">
 			<img class="card__photo" src="#" alt="Фотография">
@@ -86,7 +112,7 @@
 			</div>
 		</article>
 	</template>
-	<!--<script type="module" src="./pages/index.js"></script>-->
+	<script type="module" src="./pages/index.js"></script>
 </body>
 
 </html>

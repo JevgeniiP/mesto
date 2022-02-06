@@ -59,3 +59,17 @@
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/popup/__caption/popup__caption.css);
 @import url(../blocks/popup/__close/_type/popup__close_type_fullscreen.css);
+
+@import url(../blocks/popup/_type/popup_type_confirm.css);
+@import url(../blocks/popup/__confirm/popup__confirm.css);
+@import url(../blocks/popup/__close/_type/popup__close_type_confirm.css);
+@import url(../blocks/popup/__title/_type/popup__title_confirm.css);
+@import url(../blocks/popup/__save/_type/popup__save_type_confirm.css);
+@import url(../blocks/confirm-button/confirm-button.css);
+
+@import url(../blocks/profile/__button-photo-edit/profile__button-photo-edit.css);
+
+@import url(../blocks/popup/_type/popup_type_avatar.css);
+@import url(../blocks/popup/__form/_type/popup__form_type_avatar.css);
+@import url(../blocks/popup/__input/_type/popup__input_type_avatar-url.css);
+@import url(../blocks/popup/__save/_type/popup__save_type_avatar.css);
