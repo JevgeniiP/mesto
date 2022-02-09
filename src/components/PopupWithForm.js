@@ -23,7 +23,7 @@ export class PopupWithForm extends Popup {
 		super.setEventListeners();
 		this._popupSelector.addEventListener('submit', (event) => {
 			event.preventDefault();
-			this._submitFormCallback(this._getInputValues());//Я поняял))Большое спасибо! А пытался передать функцию, сгенерированную в index.js конструктор класса
+			this._submitFormCallback(this._getInputValues());
 			this.close();
 		});
 	}

@@ -16,13 +16,13 @@
 	<main>
 		<section class="profile">
 			<div class="profile__items">
-				<img class="profile__photo" src='./images/profile-photo.jpg' alt=" Фото профиля">
+				<img class="profile__photo" src='#' alt=" Фото профиля">
 				<button class="profile__button-photo-edit"></button>
 				<div class="profile__info">
-					<h1 class="profile__name">Жак-Ив Кусто</h1>
+					<h1 class="profile__name"></h1>
 					<button type="button" class="profile__button-edit"
 						aria-label="Кнопка редактирования имени и профессии пользователя в профиле"></button>
-					<p class="profile__profession">Исследователь океана</p>
+					<p class="profile__profession"></p>
 				</div>
 			</div>
 			<button type="button" class="profile__button-add" aria-label="Кнопка добавления фотографий"></button>
@@ -31,7 +31,7 @@
 		</section>
 	</main>
 	<footer class="footer">
-		<p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+		<p class="footer__copyright">&copy; 2022 Mesto Russia</p>
 	</footer>
 
 	<div class="popup popup_type_profile preload">
@@ -40,12 +40,11 @@
 				aria-label="Кнопка закрытия всплывающего окна редактирования профиля"></button>
 			<h3 class="popup__title">Редактировать профиль</h3>
 			<form name="profile" class="popup__form popup__form_type_profile" novalidate>
-				<input required minlength="2" maxlength="40" autocomplete="off" id="name-profile" name="name-profile"
-					type="text" class="popup__input popup__input_type_name" placeholder="Имя">
+				<input required minlength="2" maxlength="40" autocomplete="off" id="name-profile" name="name" type="text"
+					class="popup__input popup__input_type_name" placeholder="Имя">
 				<span id="name-profile-error" class="error"></span>
-				<input required minlength="2" maxlength="200" autocomplete="off" id="profession-profile"
-					name="profession-profile" type="text" class="popup__input popup__input_type_proffesion"
-					placeholder="Занятие">
+				<input required minlength="2" maxlength="200" autocomplete="off" id="profession-profile" name="about"
+					type="text" class="popup__input popup__input_type_proffesion" placeholder="Занятие">
 				<span id="profession-profile-error" class="error"></span>
 				<button type="submit" class="popup__save popup__save_type_profile"
 					aria-label="Кнопка применения внесенных изменений в профиль">Сохранить</button>
@@ -58,10 +57,10 @@
 				aria-label="Кнопка закрытия всплывающего окна добавления карточек"></button>
 			<h3 class="popup__title">Новое место</h3>
 			<form name="cards" class="popup__form popup__form_type_cards" novalidate>
-				<input required minlength="2" maxlength="30" autocomplete="off" id="name-card" name="name-card" type="text"
+				<input required minlength="2" maxlength="30" autocomplete="off" id="name-card" name="name" type="text"
 					class="popup__input popup__input_type_card-name" placeholder="Название">
 				<span id="name-card-error" class="error"></span>
-				<input required autocomplete="off" id="url-card" name="url-card" type="url"
+				<input required autocomplete="off" id="url-card" name="link" type="url"
 					class="popup__input popup__input_type_card-url" placeholder="Ссылка на картинку">
 				<span id="url-card-error" class="error"></span>
 				<button disabled type="submit" class="popup__save popup__save_invalid popup__save_type_cards"
@@ -94,10 +93,10 @@
 				aria-label="Кнопка закрытия попапа редактора аватара профиля"></button>
 			<h3 class="popup__title">Обновить аватар</h3>
 			<form name="avatar" class="popup__form popup__form_type_avatar" novalidate>
-				<input required autocomplete="off" id="url-card" name="url-card" type="url"
+				<input required autocomplete="off" id="url-avatar" name="avatar" type="url"
 					class="popup__input popup__input_type_avatar-url" placeholder="Ссылка на картинку">
 				<span id="url-avatar-error" class="error"></span>
-				<button disabled type="submit" class="popup__save popup__save_invalid  popup__save_type_avatar"
+				<button disabled type="submit" class="popup__save popup__save_invalid popup__save_type_avatar"
 					aria-label="Кнопка сохранения картинки аватара профиля">Сохранить</button>
 			</form>
 		</div>
@@ -108,7 +107,10 @@
 			<button type="button" class="card__button-delete"></button>
 			<div class="card__like-zone">
 				<h2 class="card__title"></h2>
-				<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
+				<div class="card__like-zone_like-counter">
+					<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
+					<h3 class="card__like-counter">0</h3>
+				</div>
 			</div>
 		</article>
 	</template>

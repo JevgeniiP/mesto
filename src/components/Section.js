@@ -6,7 +6,7 @@ export class Section {
 	}
 
 	addItem(element) {
-		this._containerSelector.prepend(element);
+		this._containerSelector.append(element);
 	}
 
 	renderedItems() {
@@ -16,3 +16,8 @@ export class Section {
 	}
 
 }
+/*function createElement(data) {
+	const card = createCards(data);
+	section.addItem(card);
+
+} */

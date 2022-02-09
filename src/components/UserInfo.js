@@ -1,7 +1,8 @@
 export class UserInfo {
-	constructor({ name, profession }) {
+	constructor({ name, profession, avatar }) {
 		this._name = name;
 		this._profession = profession;
+		this._avatar = avatar;
 
 	}
 
@@ -12,8 +13,10 @@ export class UserInfo {
 		}
 	}
 
-	setUserInfo({ name, profession }) {
+	setUserInfo({ name, about, avatar, id }) {
 		this._name.textContent = name;
-		this._profession.textContent = profession;
+		this._profession.textContent = about;
+		this._avatar.src = avatar;
+		this._id = id;
 	}
 }

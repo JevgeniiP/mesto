@@ -1,7 +1,9 @@
 export class Card {
-	constructor(data, templateElement, handleCardClick) {
+	constructor({ data, templateElement, handleCardClick }) {
 		this._name = data.name;
 		this._link = data.link;
+		this._id = data._id;
+		this._likes = data.likes;
 		this._templateElement = templateElement
 		this._popupFullScreen = document.querySelector('.popup_type_fullscreen');
 		this._imageCard = this._popupFullScreen.querySelector('.card__photo');
