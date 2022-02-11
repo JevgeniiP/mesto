@@ -44,7 +44,6 @@ export class Api {
 			.then(this._handleResponse)
 	}
 
-
 	editProfileInfo(data) {
 		return fetch(`${this._adress}/users/me`, {
 			method: 'PATCH',
@@ -74,5 +73,13 @@ export class Api {
 		})
 			.then(this._handleResponse)
 	}
-
+	deleteCard(id) {
+		return fetch(`${this._adress}/cards/${id}`, {
+			method: 'DELETE',
+			headers: {
+				authorization: this._token
+			}
+		})
+			.then(this._handleResponse)
+	}
 }

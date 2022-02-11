@@ -29,6 +29,7 @@ const inputAvatarUrl = document.querySelector('.popup__input_type_avatar-url');
 const profileAvatar = document.querySelector('.profile__photo');
 const avatarEditButton = document.querySelector('.profile__button-photo-edit');
 
+
 //const initialCards = [
 //	{
 //		name: 'Архыз',
@@ -65,4 +66,4 @@ const validationConfig = {
 	submitButtonErrorClass: 'popup__save_invalid',
 };
 
-export { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, inputCardName, inputCardUrl, popupFullscreen, validationConfig, popupPhoto, popupCaption, profileAvatar, popupAvatar, inputAvatarUrl, formAvatar, avatarEditButton };
+export { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, inputCardName, inputCardUrl, popupFullscreen, validationConfig, popupPhoto, popupCaption, profileAvatar, popupAvatar, inputAvatarUrl, formAvatar, avatarEditButton, popupConfirm };

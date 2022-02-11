@@ -3,13 +3,16 @@
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js'
 import { Section } from '../components/Section.js';
-import { UserInfo } from '../components/UserInfo.js'
-import { PopupWithForm } from '../components/PopupWithForm.js'
+import { UserInfo } from '../components/UserInfo.js';
+import { Popup } from '../components/Popup.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithConfirm } from '../components/PopupWithConfirm.js';
 
 import { Api } from '../components/Api.js'
 
-import { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, inputCardName, inputCardUrl, popupFullscreen, /*initialCards,*/ validationConfig, popupPhoto, popupCaption, profileAvatar, popupAvatar, inputAvatarUrl, formAvatar, avatarEditButton } from '../utils/constants.js'
+import { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, inputCardName, inputCardUrl, popupFullscreen, /*initialCards,*/ validationConfig, popupPhoto, popupCaption, profileAvatar, popupAvatar, inputAvatarUrl, formAvatar, avatarEditButton, popupConfirm } from '../utils/constants.js'
+
 
 const api = new Api({
 	adress: 'https://mesto.nomoreparties.co/v1/cohort-35',
@@ -22,6 +25,7 @@ window.onload = function () {
 	popupCards.classList.remove('preload');
 	popupFullscreen.classList.remove('preload');
 	popupAvatar.classList.remove('preload');
+	popupConfirm.classList.remove('preload');
 }
 
 const addFormValidationImage = new FormValidator(validationConfig, formCards);
@@ -36,9 +40,20 @@ const imagePopup = new PopupWithImage(popupFullscreen, popupPhoto, popupCaption)
 const profilePopup = new PopupWithForm(popupProfile, handleProfileSubmit);//!
 const cardPopup = new PopupWithForm(popupCards, handleCardsSubmit);
 const avatarPopup = new PopupWithForm(popupAvatar, handleAvatarSubmit);
+const confirmPopup = new PopupWithConfirm(popupConfirm);
 
 
 //!Логика профиля/////////////////////////////////////////////////////////
+
+Promise.all([api.getProfileInfo(), api.getCards()])
+	.then(([userInfo, cards]) => {
+		profileInfo.setUserInfo(userInfo);
+		cards.forEach(createElement);
+	})
+	.catch((err) => {
+		console.log(err)
+	})
+
 
 const profileInfo = new UserInfo({
 	name: profileName,
@@ -46,20 +61,17 @@ const profileInfo = new UserInfo({
 	avatar: profileAvatar,
 });
 
-api.getProfileInfo()
-	.then(data => {
-		profileInfo.setUserInfo(data);
-	});
-
 function handleProfileSubmit(data) {
 	api.editProfileInfo(data)
 		.then((res) => {
 			profileInfo.setUserInfo(res)
 			profilePopup.close();
 		})
+
 		.catch((err) => {
 			console.log(err)
 		})
+
 }
 
 function openPopupProfile() {
@@ -85,15 +97,7 @@ function openPopupAvatar() {
 	addFormValidationAvatar.publicHideError();
 	avatarPopup.open();
 }
-
 //!Логика карточек/////////////////////////////////////////////////////////
-api.getCards()
-	.then((data) => {
-		data.forEach((el) => { createElement(el) })
-	})
-	.catch((res) => {
-		console.log(res);
-	})
 
 const section = new Section({
 	items: [],
@@ -104,6 +108,19 @@ function createCards(data) {
 	const card = new Card({
 		data,
 		templateElement: '.template',
+		id: profileInfo._id,
+		deleteCardHandler: () => {
+			confirmPopup.open(() => {
+				api.deleteCard(card.getId())
+					.then(() => {
+						confirmPopup.close();
+						card._clearTemplate();
+					})
+					.catch((err) => {
+						console.log(err);
+					})
+			})
+		},
 		handleCardClick: () => imagePopup.open(data)
 	});
 	return card.generateCard();
@@ -131,6 +148,7 @@ function elementEditHandler() {
 	addFormValidationImage.publicHideError();
 	cardPopup.open();
 }
+
 //!Логика ********/////////////////////////////////////////////////////////
 
 //function elementEditHandler() {
@@ -153,3 +171,4 @@ imagePopup.setEventListeners();
 profilePopup.setEventListeners();
 cardPopup.setEventListeners();
 avatarPopup.setEventListeners();
+confirmPopup.setEventListeners();

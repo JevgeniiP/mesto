@@ -16,8 +16,3 @@ export class Section {
 	}
 
 }
-/*function createElement(data) {
-	const card = createCards(data);
-	section.addItem(card);
-
-} */
