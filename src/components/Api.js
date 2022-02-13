@@ -73,12 +73,31 @@ export class Api {
 		})
 			.then(this._handleResponse)
 	}
-	deleteCard(id) {
-		return fetch(`${this._adress}/cards/${id}`, {
+	deleteCard(_id) {
+		return fetch(`${this._adress}/cards/${_id}`, {
 			method: 'DELETE',
 			headers: {
 				authorization: this._token
 			}
+		})
+			.then(this._handleResponse)
+	}
+	sendLike = (_id) => {
+		return fetch(`${this._adress}/cards/${_id}/likes`, {
+			method: 'PUT',
+			headers: {
+				authorization: this._token,
+				'Content-Type': 'application/json'
+			}
+		})
+			.then(this._handleResponse)
+	}
+	deleteLike = (_id) => {
+		return fetch(`${this._adress}/cards/${_id}/likes`, {
+			method: 'DELETE',
+			headers: {
+				authorization: this._token
+			},
 		})
 			.then(this._handleResponse)
 	}

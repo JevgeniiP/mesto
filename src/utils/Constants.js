@@ -14,8 +14,6 @@ const inputProfession = formProfile.querySelector('.popup__input_type_proffesion
 const formCards = document.querySelector('.popup__form_type_cards');
 const cardsEditButton = document.querySelector('.profile__button-add');
 
-const inputCardName = formCards.querySelector('.popup__input_type_card-name');
-const inputCardUrl = formCards.querySelector('.popup__input_type_card-url');
 
 const popupFullscreen = document.querySelector('.popup_type_fullscreen');
 const popupPhoto = document.querySelector('.popup__photo');
@@ -25,37 +23,8 @@ const popupConfirm = document.querySelector('.popup_type_confirm');
 
 const popupAvatar = document.querySelector('.popup_type_avatar');
 const formAvatar = document.querySelector('.popup__form_type_avatar');
-const inputAvatarUrl = document.querySelector('.popup__input_type_avatar-url');
 const profileAvatar = document.querySelector('.profile__photo');
 const avatarEditButton = document.querySelector('.profile__button-photo-edit');
-
-
-//const initialCards = [
-//	{
-//		name: 'Архыз',
-//		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-//	},
-//	{
-//		name: 'Челябинская область',
-//		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-//	},
-//	{
-//		name: 'Иваново',
-//		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-//	},
-//	{
-//		name: 'Камчатка',
-//		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-//	},
-//	{
-//		name: 'Холмогорский район',
-//		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-//	},
-//	{
-//		name: 'Байкал',
-//		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-//	}
-//];
 
 
 const validationConfig = {
@@ -66,4 +35,4 @@ const validationConfig = {
 	submitButtonErrorClass: 'popup__save_invalid',
 };
 
-export { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, inputCardName, inputCardUrl, popupFullscreen, validationConfig, popupPhoto, popupCaption, profileAvatar, popupAvatar, inputAvatarUrl, formAvatar, avatarEditButton, popupConfirm };
+export { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, popupFullscreen, validationConfig, popupPhoto, popupCaption, profileAvatar, popupAvatar, formAvatar, avatarEditButton, popupConfirm };

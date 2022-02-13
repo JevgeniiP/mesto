@@ -5,13 +5,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Place</title>
-	<link rel="stylesheet" href="../src/pages/index.css">
+	<!--!<link rel="stylesheet" href="../src/pages/index.css">-->
 </head>
 
 
 <body class="page">
 	<header class="header">
-		<img class="header__logo" src='./images/header-logo.svg' alt=" Логотип">
+		<img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt=" Логотип">
 	</header>
 	<main>
 		<section class="profile">
@@ -109,12 +109,12 @@
 				<h2 class="card__title"></h2>
 				<div class="card__like-zone_like-counter">
 					<button type="button" class="like-button" aria-label="Кнопка поставить отметку нравится"></button>
-					<h3 class="card__like-counter"></h3>
+					<h3 class="card__like-counter">0</h3>
 				</div>
 			</div>
 		</article>
 	</template>
-	<script type="module" src="./pages/index.js"></script>
+	<!--!<script type="module" src="./pages/index.js"></script>-->
 </body>
 
 </html>

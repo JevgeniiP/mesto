@@ -3,7 +3,8 @@ import { Popup } from "../components/Popup.js";
 export class PopupWithConfirm extends Popup {
 	constructor(popupSelector) {
 		super(popupSelector);
-		this._elementDeleteButton = this._popupSelector.querySelector('.popup__save_type_confirm');
+		this._elementDeleteButton = this._popupSelector.querySelector('.popup__save');
+		this._elementDeleteButtonInnertext = this._elementDeleteButton.textContent;
 	}
 
 	_deleteConfirm = (ev) => {
@@ -22,5 +23,8 @@ export class PopupWithConfirm extends Popup {
 		this._elementDeleteButton.addEventListener('click', this._deleteConfirm);
 	}
 
+	renderLoading(isLoading) {
 
+		this._elementDeleteButton.textContent = isLoading ? 'Сохранение...' : this._elementDeleteButtonInnertext;
+	}
 }

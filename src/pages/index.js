@@ -1,17 +1,16 @@
-//import '../pages/index.css';
+import '../pages/index.css';
 
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js'
 import { Section } from '../components/Section.js';
 import { UserInfo } from '../components/UserInfo.js';
-import { Popup } from '../components/Popup.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithConfirm } from '../components/PopupWithConfirm.js';
 
 import { Api } from '../components/Api.js'
 
-import { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, inputCardName, inputCardUrl, popupFullscreen, /*initialCards,*/ validationConfig, popupPhoto, popupCaption, profileAvatar, popupAvatar, inputAvatarUrl, formAvatar, avatarEditButton, popupConfirm } from '../utils/constants.js'
+import { appendCards, popupProfile, popupCards, formProfile, profileName, profileProfession, editButtonProfile, inputName, inputProfession, formCards, cardsEditButton, popupFullscreen, validationConfig, popupPhoto, popupCaption, profileAvatar, popupAvatar, formAvatar, avatarEditButton, popupConfirm } from '../utils/constants.js'
 
 
 const api = new Api({
@@ -62,6 +61,7 @@ const profileInfo = new UserInfo({
 });
 
 function handleProfileSubmit(data) {
+	profilePopup.renderLoading(true);
 	api.editProfileInfo(data)
 		.then((res) => {
 			profileInfo.setUserInfo(res)
@@ -70,6 +70,9 @@ function handleProfileSubmit(data) {
 
 		.catch((err) => {
 			console.log(err)
+		})
+		.finally(() => {
+			profilePopup.renderLoading(false);
 		})
 
 }
@@ -84,6 +87,7 @@ function openPopupProfile() {
 }
 
 function handleAvatarSubmit(data) {
+	avatarPopup.renderLoading(true);
 	api.editAvatar(data)
 		.then((res) => {
 			profileInfo.setUserInfo(res)
@@ -92,6 +96,9 @@ function handleAvatarSubmit(data) {
 		.catch((err) => {
 			console.log(err)
 		})
+		.finally(() => {
+			avatarPopup.renderLoading(false);
+		});
 }
 function openPopupAvatar() {
 	addFormValidationAvatar.publicHideError();
@@ -108,9 +115,12 @@ function createCards(data) {
 	const card = new Card({
 		data,
 		templateElement: '.template',
+		sendLike: api.sendLike,
+		deleteLike: api.deleteLike,
 		id: profileInfo._id,
 		deleteCardHandler: () => {
 			confirmPopup.open(() => {
+				confirmPopup.renderLoading(true);
 				api.deleteCard(card.getId())
 					.then(() => {
 						confirmPopup.close();
@@ -119,6 +129,9 @@ function createCards(data) {
 					.catch((err) => {
 						console.log(err);
 					})
+					.finally(() => {
+						confirmPopup.renderLoading(false);
+					});
 			})
 		},
 		handleCardClick: () => imagePopup.open(data)
@@ -133,6 +146,7 @@ function createElement(data) {
 }
 
 function handleCardsSubmit(data) {
+	cardPopup.renderLoading(true);
 	api.sendCards(data)
 		.then((data) => {
 			createElement(data)
@@ -142,6 +156,9 @@ function handleCardsSubmit(data) {
 		.catch((err) => {
 			console.log(err);
 		})
+		.finally(() => {
+			cardPopup.renderLoading(false);
+		})
 };
 
 function elementEditHandler() {
@@ -149,20 +166,6 @@ function elementEditHandler() {
 	cardPopup.open();
 }
 
-//!Логика ********/////////////////////////////////////////////////////////
-
-//function elementEditHandler() {
-//	addFormValidationImage.publicHideError();
-//	cardPopup.open();
-//}
-//
-//function handleCardsSubmit() {
-//	const newValues = {
-//		name: inputCardName.value,
-//		link: inputCardUrl.value,
-//	}
-//	section.addItem(createElement(newValues));
-//};
 
 editButtonProfile.addEventListener('click', openPopupProfile);
 cardsEditButton.addEventListener('click', elementEditHandler);
