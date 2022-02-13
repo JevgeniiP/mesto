@@ -54,7 +54,6 @@
 .popup_type_confirm{background-color:rgba(0,0,0,.9)}
 .popup__confirm{background:#fff;border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);min-width:430px;padding:0;position:relative}@media screen and (max-width:768px){.popup__confirm{min-width:282px}}
 
-.popup__title_confirm{color:#000;font-family:Inter,Arial,sans-serif;font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:34px 64px 0 36px;text-align:left}@media screen and (max-width:768px){.popup__title_confirm{font-size:18px;line-height:22px;margin:26px 28px 0 22px}}
 .popup__save_type_confirm{margin:0}@media screen and (max-width:768px){.popup__save_type_confirm{font-size:14px;line-height:17px;margin:0;min-height:46px}}
 .confirm-button{display:flex;flex-direction:column;margin:34px 36px 36px;max-width:358px}@media screen and (max-width:768px){.confirm-button{margin:25px 22px}}
 .profile__button-photo-edit{background-color:rgba(0,0,0,.8);background-image:url(ae1a976ddb506239e9f0.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;height:120px;opacity:0;overflow:hidden;padding:0;position:absolute;transition:opacity 1s ease;width:120px}.profile__button-photo-edit:hover{opacity:1}
