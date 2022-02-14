@@ -73,7 +73,7 @@ export class Card {
 	getId() {
 		return this._id;
 	}
-	_clearTemplate() {
+	clearTemplate() {
 		this._templates.remove();
 		this._templates = null;
 	}

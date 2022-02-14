@@ -31,15 +31,15 @@ const addFormValidationImage = new FormValidator(validationConfig, formCards);
 const addFormValidationProfile = new FormValidator(validationConfig, formProfile);
 const addFormValidationAvatar = new FormValidator(validationConfig, formAvatar);
 
-addFormValidationImage.enableValidation();
-addFormValidationProfile.enableValidation();
-addFormValidationAvatar.enableValidation();
+addFormValidationImage.setEventListeners();
+addFormValidationProfile.setEventListeners();
+addFormValidationAvatar.setEventListeners();
 
-const imagePopup = new PopupWithImage(popupFullscreen, popupPhoto, popupCaption);
-const profilePopup = new PopupWithForm(popupProfile, handleProfileSubmit);//!
-const cardPopup = new PopupWithForm(popupCards, handleCardsSubmit);
-const avatarPopup = new PopupWithForm(popupAvatar, handleAvatarSubmit);
-const confirmPopup = new PopupWithConfirm(popupConfirm);
+const imagePopup = new PopupWithImage('.popup_type_fullscreen', popupPhoto, popupCaption);
+const profilePopup = new PopupWithForm('.popup_type_profile', handleProfileSubmit);//!
+const cardPopup = new PopupWithForm('.popup_type_cards', handleCardsSubmit);
+const avatarPopup = new PopupWithForm('.popup_type_avatar', handleAvatarSubmit);
+const confirmPopup = new PopupWithConfirm('.popup_type_confirm');
 
 
 //!Логика профиля/////////////////////////////////////////////////////////
@@ -124,7 +124,7 @@ function createCards(data) {
 				api.deleteCard(card.getId())
 					.then(() => {
 						confirmPopup.close();
-						card._clearTemplate();
+						card.clearTemplate();
 					})
 					.catch((err) => {
 						console.log(err);

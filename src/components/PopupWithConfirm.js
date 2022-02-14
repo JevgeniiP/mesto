@@ -3,7 +3,8 @@ import { Popup } from "../components/Popup.js";
 export class PopupWithConfirm extends Popup {
 	constructor(popupSelector) {
 		super(popupSelector);
-		this._elementDeleteButton = this._popupSelector.querySelector('.popup__save');
+		this._popup = document.querySelector(popupSelector);
+		this._elementDeleteButton = this._popup.querySelector('.popup__save');
 		this._elementDeleteButtonInnertext = this._elementDeleteButton.textContent;
 	}
 

@@ -3,10 +3,11 @@ import { Popup } from "../components/Popup.js";
 export class PopupWithForm extends Popup {
 	constructor(popupSelector, submitFormCallback) {
 		super(popupSelector);
+		this._popup = document.querySelector(popupSelector);
 		this._submitFormCallback = submitFormCallback;
-		this._inputs = [...this._popupSelector.querySelectorAll('.popup__input')];
-		this._popupForm = this._popupSelector.querySelector('.popup__form');
-		this._popupProfileSaveButton = popupSelector.querySelector('.popup__save');
+		this._inputs = [...this._popup.querySelectorAll('.popup__input')];
+		this._popupForm = this._popup.querySelector('.popup__form');
+		this._popupProfileSaveButton = this._popup.querySelector('.popup__save');
 		this._popupProfileSaveButtonInner = this._popupProfileSaveButton.textContent;
 	}
 
@@ -23,10 +24,9 @@ export class PopupWithForm extends Popup {
 	}
 	setEventListeners() {
 		super.setEventListeners();
-		this._popupSelector.addEventListener('submit', (event) => {
+		this._popup.addEventListener('submit', (event) => {
 			event.preventDefault();
 			this._submitFormCallback(this._getInputValues());
-			this.close();
 		});
 	}
 	renderLoading(isLoading) {

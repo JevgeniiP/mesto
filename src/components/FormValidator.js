@@ -40,7 +40,7 @@ export class FormValidator {
 
 	}
 
-	enableValidation() {
+	setEventListeners() {
 		this._form.addEventListener('input', () => this.setSubmitButtonState());
 
 		this._inputs.forEach(inputEl => {
