@@ -41,6 +41,7 @@ const cardPopup = new PopupWithForm('.popup_type_cards', handleCardsSubmit);
 const avatarPopup = new PopupWithForm('.popup_type_avatar', handleAvatarSubmit);
 const confirmPopup = new PopupWithConfirm('.popup_type_confirm');
 
+//У меня еще один вопрос: При добавлении карточки, она добавляется в конец ДУМ блока с карточками, хотя при вставке новой карточки я испульзую аппенд. Можно указать мне в чем проблема? Спасибо!)
 
 //!Логика профиля/////////////////////////////////////////////////////////
 
